@@ -42,6 +42,7 @@
     clang
     clippy
     davinci-resolve
+    delta
     exa
     fzf
     htop
