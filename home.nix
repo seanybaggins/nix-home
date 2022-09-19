@@ -67,7 +67,7 @@
       size = 50000;
       save = 50000;
     };
-    initExtra = import .zsh/zsh_rc.nix pkgs;
+    initExtra = import ./zsh/zsh_rc.nix pkgs;
     plugins = with pkgs; [
       {
         name = "zsh-autosuggestions";
