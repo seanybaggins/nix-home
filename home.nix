@@ -57,6 +57,7 @@
     tldr
     tmux
     vlc
+    wget
     xsel
   ];
 
