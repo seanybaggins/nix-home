@@ -38,11 +38,13 @@
   home.packages = with pkgs; [
     alacritty
     bat
+    bear
     cargo
-    clang
+    clang-tools
     clippy
     davinci-resolve
     delta
+    docker
     exa
     fzf
     htop
@@ -106,6 +108,7 @@
       ale # for Error corrections in C#
       auto-pairs
       coc-nvim
+      coc-clangd
       coc-rust-analyzer
       fzf-vim
       lightline-vim
@@ -144,6 +147,11 @@
     extraConfig = {
       init.defaultBranch = "main";
     };
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   home.sessionVariables = {
