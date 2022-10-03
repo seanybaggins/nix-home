@@ -62,6 +62,7 @@
     rustfmt
     tldr
     tmux
+    tree
     vlc
     wget
     xsel
