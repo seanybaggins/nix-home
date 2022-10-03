@@ -30,9 +30,12 @@
   };
 
   home.shellAliases = {
-    vim = "nvim";
+    la = "ls -a";
+    ll = "ls -l";
+    lla = "ls -la";
     ls = "exa";
     tmux = "tmux -2";
+    vim = "nvim";
   };
 
   home.packages = with pkgs; [
@@ -40,6 +43,7 @@
     bat
     bear
     cargo
+    clang
     clang-tools
     clippy
     davinci-resolve
