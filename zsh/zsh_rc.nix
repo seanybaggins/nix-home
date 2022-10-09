@@ -1,6 +1,9 @@
 {pkgs, ...} :
 ''
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
+
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
 
 if [ -x "$(command -v neofetch)" ] && [ -n "$TMUX" ]; then

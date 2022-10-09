@@ -1,11 +1,11 @@
 # vim: tabstop=2 shiftwidth=2 expandtab
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
 
   # Home Manager needs a bit of information about you aknd the
   # paths it should manage.
-  home.username = "demo";
-  home.homeDirectory = "/home/demo";
+  home.username = "deck";
+  home.homeDirectory = "/home/deck";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -38,34 +38,33 @@
     vim = "nvim";
   };
 
-  home.packages = with pkgs; [
-    alacritty
-    bat
-    bear
-    cargo
-    clang
-    clang-tools
-    clippy
-    davinci-resolve
-    delta
-    docker
-    exa
-    fzf
-    htop
-    meslo-lgs-nf
-    neofetch
-    obs-studio
-    pentablet-driver
-    ripgrep
-    rust-analyzer
-    rustc
-    rustfmt
-    tldr
-    tmux
-    tree
-    vlc
-    wget
-    xsel
+  home.packages = [
+    pkgs.alacritty
+    pkgs.bat
+    pkgs.bear
+    pkgs.cargo
+    pkgs.clang
+    pkgs.clang-tools
+    pkgs.clippy
+    pkgs.davinci-resolve
+    pkgs.delta
+    pkgs.docker
+    pkgs.exa
+    pkgs.fzf
+    pkgs.htop
+    pkgs.meslo-lgs-nf
+    pkgs.neofetch
+    pkgs.pentablet-driver
+    pkgs.ripgrep
+    pkgs.rust-analyzer
+    pkgs.rustc
+    pkgs.rustfmt
+    pkgs.tldr
+    pkgs.tmux
+    pkgs.tree
+    pkgs.vlc
+    pkgs.wget
+    pkgs.xsel
   ];
 
   programs.zsh = {
