@@ -6,7 +6,7 @@ set -e
 if ! grep -q /nix /etc/fstab; then
     echo Adding nix mount to fstab
     sudo steamos-readonly disable
-    echo "/home/deck/nix			  /nix    none	  defaults,bind		   0       0" >> /etc/fstab
+    sudo sh -c 'echo "/home/deck/nix			  /nix    none	  defaults,bind		   0       0" >> /etc/fstab'
     sudo steamos-readonly enable
 fi
 
@@ -25,7 +25,7 @@ if ! [ -d /nix ]; then
     sudo mount /nix
 fi
 
-if ! [ -d /nix/store]; then
+if ! [ -d /nix/store ]; then
     echo Installing nix package manager
     sh <(curl -L https://nixos.org/nix/install) --no-daemon
 
@@ -50,7 +50,21 @@ if ! [ -d /nix/store]; then
     home-manager switch
 fi
 
-echo Installing virtual box
-sudo steamos-readonly disable
-sudo pacman -S virtualbox
-sudo steamos-readonly enable
+if ! grep -q /home/deck/.nix-profile/bin/zsh /etc/shells; then
+    echo "Adding nix's zsh to /etc/shells"
+    sudo steamos-readonly disable
+    sudo sh -c 'echo "/home/deck/.nix-profile/bin/zsh" >> /etc/shells'
+    sudo steamos-readonly enable
+fi
+
+if ! grep deck /etc/passwd | grep -q /home/deck/.nix-profile/bin/zsh; then
+    echo "Setting zsh as the default shell for the deck user"
+    sudo chsh -s /home/deck/.nix-profile/bin/zsh deck
+fi
+
+#echo Installing virtual box
+#sudo steamos-readonly disable
+#sudo pacman -Sy archlinux-keyring
+#sudo pacman -Su
+#sudo pacman -S virtualbox 
+#sudo steamos-readonly enable
