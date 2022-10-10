@@ -62,9 +62,11 @@ if ! grep deck /etc/passwd | grep -q /home/deck/.nix-profile/bin/zsh; then
     sudo chsh -s /home/deck/.nix-profile/bin/zsh deck
 fi
 
-#echo Installing virtual box
-#sudo steamos-readonly disable
-#sudo pacman -Sy archlinux-keyring
-#sudo pacman -Su
-#sudo pacman -S virtualbox 
-#sudo steamos-readonly enable
+if ! pacman -Q virt-manager; then
+    echo Installing virt-manager
+    sudo steamos-readonly disable
+    sudo pacman-key --init
+    sudo pacman-key --populate archlinux
+    sudo pacman -S virt-manager qemu
+    sudo steamos-readonly enable
+fi
