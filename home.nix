@@ -1,5 +1,5 @@
 # vim: tabstop=2 shiftwidth=2 expandtab
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
 
   # Home Manager needs a bit of information about you aknd the
