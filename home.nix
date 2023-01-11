@@ -60,10 +60,11 @@
     htop
     meslo-lgs-nf
     neofetch
+    nil
+    nixpkgs-fmt
     obs-studio
     pentablet-driver
     ripgrep
-    rnix-lsp
     rust-analyzer
     rustc
     rustfmt

@@ -11,11 +11,16 @@ pkgs:
     "rust-analyzer.server.path": "${pkgs.rust-analyzer}/bin/rust-analyzer",
 
     "languageserver": {
-      "nix": {
-        "command": "rnix-lsp",
-        "filetypes": [
-          "nix"
-        ]
+    "nix": {
+      "command": "nil",
+      "filetypes": ["nix"],
+      "rootPatterns":  ["flake.nix"],
+       "settings": {
+         "nil": {
+           "formatting": { "command": ["nixpkgs-fmt"] }
+         }
+       }
     }
+  }
 }
 ''
