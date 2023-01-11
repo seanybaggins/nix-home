@@ -127,6 +127,12 @@ let g:ale_linters_explicit = 1
 let g:ale_linters = {
 \ 'cs': ['OmniSharp']
 \}
+
+" Auto fill shell.nix files
+autocmd BufNewFile shell.nix 0r ~/.config/nvim/skeletons/shell.nix
+
+" Set spacing for .nix files to 2 spaces
+autocmd FileType nix setlocal ts=2 sts=2 sw=2
 '' 
 + import ./coc-config.nix
 + import ./colors.nix

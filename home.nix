@@ -29,6 +29,10 @@
     text = import ./coc/coc.nix pkgs;
   };
 
+  home.file.".config/nvim/skeletons" = {
+    source = ./nvim/skeletons;
+  };
+
   home.shellAliases = {
     la = "ls -a";
     ll = "ls -l";
@@ -40,6 +44,7 @@
 
   home.packages = with pkgs; [
     alacritty
+    android-tools
     bat
     bear
     cargo
@@ -50,6 +55,7 @@
     delta
     docker
     exa
+    fish
     fzf
     htop
     meslo-lgs-nf
@@ -57,12 +63,15 @@
     obs-studio
     pentablet-driver
     ripgrep
+    rnix-lsp
     rust-analyzer
     rustc
     rustfmt
+    saleae-logic-2
     tldr
     tmux
     tree
+    usbutils
     vlc
     wget
     xsel
@@ -114,6 +123,7 @@
       auto-pairs
       coc-nvim
       coc-clangd
+      coc-pyright
       coc-rust-analyzer
       fzf-vim
       lightline-vim
@@ -143,12 +153,16 @@
   programs.tmux = {
     enable = true;
     extraConfig = import ./tmux/tmux.nix;
+    plugins = with pkgs.tmuxPlugins; [
+      yank
+    ];
   };
 
   programs.git = {
     enable = true;
     userName = "Sean Link";
     userEmail = "sean.link@netally.com";
+    lfs.enable = true;
     extraConfig = {
       init.defaultBranch = "main";
     };

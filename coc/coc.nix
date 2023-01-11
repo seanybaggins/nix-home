@@ -8,6 +8,14 @@ pkgs:
     ],
     "rust-analyzer.procMacro.enable": true,
     "rust-analyzer.cargo.loadOutDirsFromCheck": true,
-    "rust-analyzer.server.path": "${pkgs.rust-analyzer}/bin/rust-analyzer"
+    "rust-analyzer.server.path": "${pkgs.rust-analyzer}/bin/rust-analyzer",
+
+    "languageserver": {
+      "nix": {
+        "command": "rnix-lsp",
+        "filetypes": [
+          "nix"
+        ]
+    }
 }
 ''
