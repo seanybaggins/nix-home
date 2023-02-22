@@ -29,6 +29,10 @@
     text = import ./coc/coc.nix pkgs;
   };
 
+  home.file.".config/nvim/templates" = {
+    source = ./nvim/templates;
+  };
+
   home.shellAliases = {
     la = "ls -a";
     ll = "ls -l";
@@ -38,33 +42,33 @@
     vim = "nvim";
   };
 
-  home.packages = [
-    pkgs.alacritty
-    pkgs.bat
-    pkgs.bear
-    pkgs.cargo
-    pkgs.clang
-    pkgs.clang-tools
-    pkgs.clippy
-    pkgs.davinci-resolve
-    pkgs.delta
-    pkgs.docker
-    pkgs.exa
-    pkgs.fzf
-    pkgs.htop
-    pkgs.meslo-lgs-nf
-    pkgs.neofetch
-    pkgs.pentablet-driver
-    pkgs.ripgrep
-    pkgs.rust-analyzer
-    pkgs.rustc
-    pkgs.rustfmt
-    pkgs.tldr
-    pkgs.tmux
-    pkgs.tree
-    pkgs.vlc
-    pkgs.wget
-    pkgs.xsel
+  home.packages = with pkgs; [
+    alacritty
+    bat
+    bear
+    cargo
+    clang
+    clang-tools
+    clippy
+    delta
+    docker
+    exa
+    fzf
+    htop
+    meslo-lgs-nf
+    neofetch
+    pentablet-driver
+    ripgrep
+    rust-analyzer
+    rustc
+    rustfmt
+    tldr
+    tmux
+    tree
+    vlc
+    wget
+    xsel
+    youtube-dl
   ];
 
   programs.zsh = {
@@ -142,6 +146,9 @@
   programs.tmux = {
     enable = true;
     extraConfig = import ./tmux/tmux.nix;
+    plugins = with pkgs.tmuxPlugins; [
+      yank
+    ];
   };
 
   programs.git = {

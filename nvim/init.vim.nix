@@ -127,6 +127,11 @@ let g:ale_linters_explicit = 1
 let g:ale_linters = {
 \ 'cs': ['OmniSharp']
 \}
+
+augroup skeletons
+  au!
+  autocmd BufNewFile *.* silent! execute '0r ~/.config/nvim/templates/*'
+augroup END
 '' 
 + import ./coc-config.nix
 + import ./colors.nix
