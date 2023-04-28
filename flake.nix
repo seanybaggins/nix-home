@@ -14,7 +14,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, jovian, nixos-hardware, ... }: {
+  outputs = { self, nixpkgs, home-manager, jovian, nixos-hardware }: {
     nixosConfigurations = {
       sean-steamdeck = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
