@@ -37,7 +37,7 @@
             # Enable touchpad support
             services.xserver.libinput.enable = true;
 
-            sound.enable = true;
+            #sound.enable = true;
             hardware.pulseaudio.enable = true;
 
             imports = [
