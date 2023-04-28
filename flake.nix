@@ -53,6 +53,19 @@
             boot.loader.systemd-boot.enable = true;
             boot.loader.efi.canTouchEfiVariables = true;
             networking.hostName = "sean-steamdeck";
+            fileSystems = {
+              "/" = {
+                device = "/dev/disk/by-label/nixos";
+                fsType = "ext4";
+                autoResize = true;
+              };
+
+              "/boot" = {
+                device = "/dev/disk/by-label/ESP";
+                fsType = "vfat";
+              };
+            };
+
           })
         ];
       };
