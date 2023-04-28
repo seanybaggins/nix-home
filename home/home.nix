@@ -52,7 +52,6 @@
     clang-tools
     clippy
     davinci-resolve
-    delta
     docker
     exa
     fish
@@ -64,6 +63,7 @@
     nixpkgs-fmt
     obs-studio
     pentablet-driver
+    python3 # For autojump
     ripgrep
     rust-analyzer
     rustc
@@ -113,17 +113,30 @@
     ];
   };
 
+  programs.autojump = {
+    enable = true;
+    enableZshIntegration = true;
+    enableFishIntegration = true;
+    enableBashIntegration = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    enableFishIntegration = true;
+    enableBashIntegration = true;
+  };
+
   programs.neovim = {
     enable = true;
     extraConfig = import ./nvim/init.vim.nix;
     plugins = with pkgs.vimPlugins; [
       #aosp-vim
-      #delta
       #omnisharp-vim' # for C# language support
       ale # for Error corrections in C#
       auto-pairs
-      coc-nvim
       coc-clangd
+      coc-nvim
       coc-pyright
       coc-rust-analyzer
       fzf-vim
@@ -133,8 +146,10 @@
       python-syntax
       rust-vim
       tabular
+      vim-devicons
       vim-fish
       vim-fugitive
+      vim-gitgutter
       vim-highlightedyank
       vim-markdown
       vim-matchup
@@ -145,7 +160,6 @@
       vim-surround
       vim-toml
       vim-yaml
-      vim-devicons
     ];
     withNodeJs = true;
     withPython3 = true;
@@ -167,11 +181,13 @@
     extraConfig = {
       init.defaultBranch = "main";
     };
+    delta.enable = true;
   };
 
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
+    nix-direnv.enable = true;
   };
 
   home.sessionVariables = {
