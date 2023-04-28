@@ -18,9 +18,9 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, jovian, ... }: {
+  outputs = { self, inputs, ... }: {
     nixosConfigurations = {
-      steamdeck = nixpkgs.lib.nixosSystem {
+      steamdeck = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           # Import the NixOS and nixos-hardware modules
@@ -31,16 +31,16 @@
           ({ pkgs, lib, ... }: {
             imports = [
               # Import the home-manager module
-              #home-manager.nixosModules.home-manager
+              inputs.home-manager.nixosModules.home-manager
               
               # Import any other modules you need
-              "${jovian}/modules"
+              "${inputs.jovian}/modules"
             ];
 
             jovian = {
-	      steam.enable = true;
-	      devices.steamdeck.enable = true;
-	    };
+              steam.enable = true;
+              devices.steamdeck.enable = true;
+            };
 
             # System settings and packages
             system.stateVersion = "unstable";
