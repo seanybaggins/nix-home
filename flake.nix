@@ -42,6 +42,7 @@
 
             imports = [
               "${jovian}/modules"
+              ./machines/steam.nix
             ];
 
             jovian = {
