@@ -19,11 +19,36 @@
       sean-steamdeck = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.sean = import ./home/home.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
           ({ pkgs, lib, ... }: {
             nixpkgs.config.allowUnfree = true;
+	    nixpkgs.config.permittedInsecurePackages = [
+              "python-2.7.18.6"
+            ];
             nix.extraOptions = ''
               experimental-features = nix-command flakes
             '';
+	    users.users.sean = {
+	      isNormalUser = true;
+	      home = "/home/sean";
+	      description = "Sean Link";
+	      extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+	      shell = pkgs.zsh;
+	    };
+	    programs.zsh.enable = true;
+            environment.systemPackages = with pkgs; [
+              firefox
+              curl
+              git
+              wget
+            ];
             hardware.bluetooth.enable = true;
             networking.networkmanager.enable = true;
             time.timeZone = "America/Denver";
@@ -34,11 +59,11 @@
             services.printing.enable = true;
             swapDevices = [ { device = "/swapfile"; size = 1024; } ];
 
+
             # Enable touchpad support
             services.xserver.libinput.enable = true;
 
             sound.enable = true;
-            #hardware.pulseaudio.enable = true;
 
             imports = [
               "${jovian}/modules"
@@ -60,13 +85,11 @@
                 fsType = "ext4";
                 autoResize = true;
               };
-
               "/boot" = {
                 device = "/dev/disk/by-label/boot";
                 fsType = "vfat";
               };
             };
-
           })
         ];
       };
