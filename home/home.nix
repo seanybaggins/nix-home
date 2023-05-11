@@ -56,6 +56,7 @@
     exa
     fish
     fzf
+    gnupg
     htop
     meslo-lgs-nf
     neofetch
@@ -72,6 +73,7 @@
     tldr
     tmux
     tree
+    trezor-suite
     usbutils
     vlc
     wget
