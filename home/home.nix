@@ -54,6 +54,7 @@
     davinci-resolve
     docker
     exa
+    fd
     fish
     fzf
     gnupg

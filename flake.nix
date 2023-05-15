@@ -23,26 +23,45 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.sean = import ./home/home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
           }
-          ({ pkgs, lib, ... }: {
+          ({ pkgs, lib, ... }: 
+          let rotateScreenScript = pkgs.writeShellScript "rotate-screen" ''
+            #!/bin/sh
+            ${pkgs.xorg.xrandr}/bin/xrandr --output eDP1 --rotate left
+          '';
+          in
+          {
             nixpkgs.config.allowUnfree = true;
-	    nixpkgs.config.permittedInsecurePackages = [
-              "python-2.7.18.6"
+            nixpkgs.config.permittedInsecurePackages = [
+              "python-2.7.18.6" # Required for davinci-resolve
             ];
             nix.extraOptions = ''
               experimental-features = nix-command flakes
             '';
-	    users.users.sean = {
-	      isNormalUser = true;
-	      home = "/home/sean";
-	      description = "Sean Link";
-	      extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
-	      shell = pkgs.zsh;
-	    };
-	    programs.zsh.enable = true;
+            users.users.sean = {
+              isNormalUser = true;
+              home = "/home/sean";
+              description = "Sean Link";
+              extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+              shell = pkgs.zsh;
+            };
+            services.udev.packages = with pkgs; [
+              trezor-udev-rules
+            ];
+            
+            services.xserver.displayManager = {
+              setupCommands = ''
+                echo "Running Xsetup" > /tmp/xsetup.log
+                echo ${pkgs.xorg.xrandr} >> /tmp/xsetup.log
+                ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --rotate right
+                echo "Finished Xsetup" >> /tmp/xsetup.log
+              '';
+              sddm = {
+                enable = true;
+              };
+            };
+
+            programs.zsh.enable = true;
             environment.systemPackages = with pkgs; [
               firefox
               curl
@@ -54,7 +73,6 @@
             time.timeZone = "America/Denver";
             services.xserver.xkbOptions = "caps:escape";
             services.xserver.enable = true;
-            services.xserver.displayManager.sddm.enable = true;
             services.xserver.desktopManager.plasma5.enable = true;
             services.printing.enable = true;
             swapDevices = [ { device = "/swapfile"; size = 1024; } ];
