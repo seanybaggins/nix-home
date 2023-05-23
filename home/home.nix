@@ -71,6 +71,7 @@
     rustc
     rustfmt
     saleae-logic-2
+    teams
     tldr
     tmux
     tree
