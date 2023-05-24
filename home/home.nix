@@ -43,7 +43,6 @@
   };
 
   home.packages = with pkgs; [
-                 # just using nix-shell -p libreoffice.
     alacritty
     android-tools
     bat
@@ -62,12 +61,13 @@
     gptcommit
     htop
     libreoffice # Need to figure out what there is so much lag when compared to
+                # just using nix-shell -p libreoffice.
     meslo-lgs-nf
     neofetch
+    networkmanager-openvpn
     nil
     nixpkgs-fmt
     obs-studio
-    openvpn
     pentablet-driver
     python3 # For autojump
     ripgrep
