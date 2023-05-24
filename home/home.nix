@@ -58,7 +58,6 @@
     fish
     fzf
     gnupg
-    gptcommit
     htop
     libreoffice # Need to figure out what there is so much lag when compared to
                 # just using nix-shell -p libreoffice.
