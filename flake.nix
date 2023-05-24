@@ -25,11 +25,6 @@
             home-manager.users.sean = import ./home/home.nix;
           }
           ({ pkgs, lib, ... }: 
-          let rotateScreenScript = pkgs.writeShellScript "rotate-screen" ''
-            #!/bin/sh
-            ${pkgs.xorg.xrandr}/bin/xrandr --output eDP1 --rotate left
-          '';
-          in
           {
             nixpkgs.config.allowUnfree = true;
             nixpkgs.config.permittedInsecurePackages = [
@@ -45,16 +40,18 @@
               extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
               shell = pkgs.zsh;
             };
+            nix.gc = {
+              automatic = true;
+              dates = "weekly";
+              options = "--delete-older-than 15d";
+            };
             services.udev.packages = with pkgs; [
               trezor-udev-rules
             ];
             
             services.xserver.displayManager = {
               setupCommands = ''
-                echo "Running Xsetup" > /tmp/xsetup.log
-                echo ${pkgs.xorg.xrandr} >> /tmp/xsetup.log
                 ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --rotate right
-                echo "Finished Xsetup" >> /tmp/xsetup.log
               '';
               sddm = {
                 enable = true;

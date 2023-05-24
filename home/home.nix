@@ -59,11 +59,14 @@
     fzf
     gnupg
     htop
+    #libreoffice # Need to figure out what there is so much lag when compared to
+                 # just using nix-shell -p libreoffice.
     meslo-lgs-nf
     neofetch
     nil
     nixpkgs-fmt
     obs-studio
+    openvpn
     pentablet-driver
     python3 # For autojump
     ripgrep
