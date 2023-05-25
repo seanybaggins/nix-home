@@ -57,6 +57,7 @@
     fd
     fish
     fzf
+    gnome.simple-scan
     gnupg
     htop
     # libreoffice # Need to figure out what there is so much lag when compared to

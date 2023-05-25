@@ -58,6 +58,12 @@
               };
             };
 
+             # for a WiFi printer
+             services.printing.enable = true;
+             services.avahi.enable = true;
+             services.avahi.nssmdns = true;
+             services.avahi.openFirewall = true;
+
             programs.zsh.enable = true;
             environment.systemPackages = with pkgs; [
               firefox
@@ -71,7 +77,6 @@
             services.xserver.xkbOptions = "caps:escape";
             services.xserver.enable = true;
             services.xserver.desktopManager.plasma5.enable = true;
-            services.printing.enable = true;
             swapDevices = [ { device = "/swapfile"; size = 1024; } ];
 
 
