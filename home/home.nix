@@ -60,7 +60,7 @@
     gnome.simple-scan
     gnupg
     htop
-    # libreoffice # Need to figure out what there is so much lag when compared to
+    libreoffice-qt # Need to figure out what there is so much lag when compared to
                 # just using nix-shell -p libreoffice.
     meslo-lgs-nf
     neofetch
@@ -75,6 +75,7 @@
     rustc
     rustfmt
     saleae-logic-2
+    signal-desktop
     teams
     tldr
     tmux
@@ -84,6 +85,7 @@
     vlc
     wget
     xsel
+    yt-dlp
   ];
 
   programs.zsh = {

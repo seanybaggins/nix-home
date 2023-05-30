@@ -30,6 +30,10 @@
             nixpkgs.config.permittedInsecurePackages = [
               "python-2.7.18.6" # Required for davinci-resolve
             ];
+            hardware.opengl.extraPackages = [
+              pkgs.rocm-opencl-icd # Required for davinci-resolve
+            ];
+
             nix.extraOptions = ''
               experimental-features = nix-command flakes
             '';
