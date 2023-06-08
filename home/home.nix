@@ -57,6 +57,7 @@
     fd
     fish
     fzf
+    gnome.eog
     gnome.simple-scan
     gnupg
     htop
