@@ -41,7 +41,7 @@
               isNormalUser = true;
               home = "/home/sean";
               description = "Sean Link";
-              extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+              extraGroups = [ "wheel" "networkmanager" "audio" "video" "docker"];
               shell = pkgs.zsh;
             };
             nix.gc = {
@@ -61,6 +61,7 @@
                 enable = true;
               };
             };
+            virtualisation.docker.enable = true;
 
              # for a WiFi printer
              services.printing.enable = true;

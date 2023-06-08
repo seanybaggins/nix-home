@@ -52,7 +52,7 @@
     clang-tools
     clippy
     davinci-resolve
-    docker
+    docker-compose
     exa
     fd
     fish
@@ -190,6 +190,7 @@
     lfs.enable = true;
     extraConfig = {
       init.defaultBranch = "main";
+      push.autoSetupRemote = "true";
     };
     delta.enable = true;
   };
