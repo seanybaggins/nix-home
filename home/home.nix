@@ -170,6 +170,7 @@
       vim-repeat
       vim-rooter
       vim-surround
+      vim-tmux-navigator
       vim-toml
       vim-yaml
     ];
@@ -182,6 +183,7 @@
     extraConfig = import ./tmux/tmux.nix;
     plugins = with pkgs.tmuxPlugins; [
       yank
+      vim-tmux-navigator
     ];
   };
 

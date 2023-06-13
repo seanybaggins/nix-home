@@ -30,12 +30,6 @@ set-option -g focus-events on
 #set -g prefix C-a
 #bind C-a send-prefix
 
-# Move between panes with vi keys
-bind h select-pane -L
-bind j select-pane -D
-bind k select-pane -U
-bind l select-pane -R
-
 # So opening a new session starts in the current
 # directory rather than the ending directory
 # https://unix.stackexchange.com/questions/12032/how-to-create-a-new-window-on-the-current-directory-in-tmux
