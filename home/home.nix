@@ -60,6 +60,7 @@
     gnome.eog
     gnome.simple-scan
     gnupg
+    graphviz-nox
     htop
     libreoffice-qt # Need to figure out what there is so much lag when compared to
                 # just using nix-shell -p libreoffice.
