@@ -92,7 +92,9 @@
 
             imports = [
               "${jovian}/modules"
-              ./machines/steam.nix
+              ./machines/steamdeck/user-configurations.nix
+              # Generated using nixos-generate-config --show-hardware-config
+              ./machines/steamdeck/hardware-configuration.nix 
             ];
 
             jovian = {
@@ -104,17 +106,7 @@
             boot.loader.systemd-boot.enable = true;
             boot.loader.efi.canTouchEfiVariables = true;
             networking.hostName = "sean-steamdeck";
-            fileSystems = {
-              "/" = {
-                device = "/dev/disk/by-label/nixos";
-                fsType = "ext4";
-                autoResize = true;
-              };
-              "/boot" = {
-                device = "/dev/disk/by-label/boot";
-                fsType = "vfat";
-              };
-            };
+            boot.initrd.availableKernelModules = lib.mkAfter [ "usb_storage" "sd_mod" ];
           })
         ];
       };
