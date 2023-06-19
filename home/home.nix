@@ -141,7 +141,7 @@
 
   programs.neovim = {
     enable = true;
-    extraConfig = import ./nvim/init.vim.nix;
+    extraConfig = import ./nvim/init.vim.nix { inherit pkgs; };
     plugins = with pkgs.vimPlugins; [
       #aosp-vim
       #omnisharp-vim' # for C# language support
@@ -158,6 +158,7 @@
       python-syntax
       rust-vim
       tabular
+      vim-autoformat
       vim-devicons
       vim-fish
       vim-fugitive
