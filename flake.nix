@@ -19,17 +19,20 @@
       sean-steamdeck = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          home-manager.nixosModules.home-manager {
+          home-manager.nixosModules.home-manager
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.sean = import ./home/home.nix;
+            #nixpkgs.overlays = [ (import ./overlays) ];
           }
-          ({ pkgs, lib, ... }: 
-          {
+          ({ pkgs, lib, ... }: {
+
             nixpkgs.config.allowUnfree = true;
             nixpkgs.config.permittedInsecurePackages = [
               "python-2.7.18.6" # Required for davinci-resolve
             ];
+
             hardware.opengl.extraPackages = [
               pkgs.rocm-opencl-icd # Required for davinci-resolve
             ];
@@ -41,7 +44,7 @@
               isNormalUser = true;
               home = "/home/sean";
               description = "Sean Link";
-              extraGroups = [ "wheel" "networkmanager" "audio" "video" "docker"];
+              extraGroups = [ "wheel" "networkmanager" "audio" "video" "docker" ];
               shell = pkgs.zsh;
             };
             nix.gc = {
@@ -52,7 +55,7 @@
             services.udev.packages = with pkgs; [
               trezor-udev-rules
             ];
-            
+
             services.xserver.displayManager = {
               setupCommands = ''
                 ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --rotate right
@@ -63,11 +66,11 @@
             };
             virtualisation.docker.enable = true;
 
-             # for a WiFi printer
-             services.printing.enable = true;
-             services.avahi.enable = true;
-             services.avahi.nssmdns = true;
-             services.avahi.openFirewall = true;
+            # for a WiFi printer
+            services.printing.enable = true;
+            services.avahi.enable = true;
+            services.avahi.nssmdns = true;
+            services.avahi.openFirewall = true;
 
             programs.zsh.enable = true;
             environment.systemPackages = with pkgs; [
@@ -82,7 +85,7 @@
             services.xserver.xkbOptions = "caps:escape";
             services.xserver.enable = true;
             services.xserver.desktopManager.plasma5.enable = true;
-            swapDevices = [ { device = "/swapfile"; size = 1024; } ];
+            swapDevices = [{ device = "/swapfile"; size = 1024; }];
 
 
             # Enable touchpad support
@@ -94,7 +97,7 @@
               "${jovian}/modules"
               ./machines/steamdeck/user-configurations.nix
               # Generated using nixos-generate-config --show-hardware-config
-              ./machines/steamdeck/hardware-configuration.nix 
+              ./machines/steamdeck/hardware-configuration.nix
             ];
 
             jovian = {
@@ -113,4 +116,3 @@
     };
   };
 }
-
