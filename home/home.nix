@@ -16,12 +16,12 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "22.11";
-  
+
   nixpkgs.config.allowUnfree = true;
 
   home.file.".config/nix/nix.conf" = {
     text = ''
-    experimental-features = nix-command flakes
+      experimental-features = nix-command flakes
     '';
   };
 
@@ -63,11 +63,12 @@
     graphviz-nox
     htop
     libreoffice-qt # Need to figure out what there is so much lag when compared to
-                # just using nix-shell -p libreoffice.
+    # just using nix-shell -p libreoffice.
     meslo-lgs-nf
     neofetch
     networkmanager-openvpn
     nil
+    nix-tree
     nixpkgs-fmt
     obs-studio
     pentablet-driver
@@ -207,9 +208,9 @@
   };
 
   home.sessionVariables = {
-    EDITOR="nvim";
-    VISUAL="nvim";
-    MANPAGER="sh -c 'col -bx | bat -l man -p'";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    MANPAGER = "sh -c 'col -bx | bat -l man -p'";
   };
 
   # Let Home Manager install and manage itself.
