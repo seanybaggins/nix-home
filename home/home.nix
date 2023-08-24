@@ -37,7 +37,7 @@
     la = "ls -a";
     ll = "ls -l";
     lla = "ls -la";
-    ls = "exa";
+    ls = "lsd";
     tmux = "tmux -2";
     vim = "nvim";
   };
@@ -53,7 +53,7 @@
     clippy
     davinci-resolve
     docker-compose
-    exa
+    lsd
     fd
     fish
     fzf
