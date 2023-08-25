@@ -66,6 +66,10 @@
             };
             virtualisation.docker.enable = true;
 
+            # For virt-manager
+            virtualisation.libvirtd.enable = true;
+            programs.dconf.enable = true;
+
             # for a WiFi printer
             services.printing.enable = true;
             services.avahi.enable = true;

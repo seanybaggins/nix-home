@@ -42,6 +42,14 @@
     vim = "nvim";
   };
 
+  # Required for virt-manager
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
+    };
+  };
+
   home.packages = with pkgs; [
     alacritty
     android-tools
@@ -86,6 +94,7 @@
     tree
     trezor-suite
     usbutils
+    virt-manager
     vlc
     wget
     xsel
