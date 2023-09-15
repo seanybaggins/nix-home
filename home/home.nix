@@ -55,6 +55,7 @@
     android-tools
     bat
     bear
+    bottles
     cargo
     clang
     clang-tools
