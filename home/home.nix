@@ -83,6 +83,7 @@
     obs-studio
     pentablet-driver
     python3 # For autojump
+    remmina
     ripgrep
     rust-analyzer
     rustc
@@ -90,6 +91,7 @@
     saleae-logic-2
     signal-desktop
     teams
+    terraform-ls
     tldr
     tmux
     tree
@@ -183,6 +185,7 @@
       vim-repeat
       vim-rooter
       vim-surround
+      vim-terraform
       vim-tmux-navigator
       vim-toml
       vim-yaml

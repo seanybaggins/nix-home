@@ -147,3 +147,4 @@
 ''
 + import ./coc-config.nix
 + import ./colors.nix
+  + import ./terraform-ls-config.nix
