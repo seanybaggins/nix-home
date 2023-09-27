@@ -53,6 +53,7 @@
   home.packages = with pkgs; [
     alacritty
     android-tools
+    awscli2
     bat
     bear
     bottles
@@ -89,6 +90,7 @@
     rustc
     rustfmt
     saleae-logic-2
+    shellcheck
     signal-desktop
     teams
     terraform-ls
@@ -184,6 +186,7 @@
       vim-nix
       vim-repeat
       vim-rooter
+      vim-shellcheck
       vim-surround
       vim-terraform
       vim-tmux-navigator
