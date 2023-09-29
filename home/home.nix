@@ -82,6 +82,7 @@
     nil
     nix-tree
     nixpkgs-fmt
+    nodePackages.bash-language-server
     obs-studio
     pentablet-driver
     python3 # For autojump
