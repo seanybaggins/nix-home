@@ -70,6 +70,7 @@
     gnome.eog
     gnome.simple-scan
     gnupg
+    gnumake
     #gpt-engineer
     graphviz-nox
     htop
