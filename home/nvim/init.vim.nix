@@ -144,6 +144,9 @@
   let g:formatdef_nixpkgsfmt = '"nixpkgs-fmt"'
   let g:formatters_nix = ['nixpkgsfmt']
 
+  " package.nix skeleton
+  autocmd BufNewFile package.nix 0r ~/.config/nvim/skeletons/package.nix
+
 ''
 + import ./coc-config.nix
 + import ./colors.nix
