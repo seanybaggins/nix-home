@@ -47,11 +47,11 @@
               extraGroups = [ "wheel" "networkmanager" "audio" "video" "docker" ];
               shell = pkgs.zsh;
             };
-            nix.gc = {
-              automatic = true;
-              dates = "weekly";
-              options = "--delete-older-than 15d";
-            };
+            #nix.gc = {
+            #  automatic = true;
+            #  dates = "weekly";
+            #  options = "--delete-older-than 15d";
+            #};
             services.udev.packages = with pkgs; [
               trezor-udev-rules
             ];
