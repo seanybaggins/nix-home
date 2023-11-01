@@ -63,14 +63,16 @@
     clippy
     davinci-resolve
     docker-compose
-    lsd
+    etcher
     fd
     fish
+    flowkey_dl
     fzf
     gnome.eog
     gnome.simple-scan
-    gnupg
     gnumake
+    gnupg
+    lsd
     #gpt-engineer
     graphviz-nox
     htop

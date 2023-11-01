@@ -24,13 +24,14 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.sean = import ./home/home.nix;
-            #nixpkgs.overlays = [ (import ./overlays) ];
+            nixpkgs.overlays = [ (import ./overlays) ];
           }
           ({ pkgs, lib, ... }: {
 
             nixpkgs.config.allowUnfree = true;
             nixpkgs.config.permittedInsecurePackages = [
               "python-2.7.18.6" # Required for davinci-resolve
+              "electron-12.2.3"
             ];
 
             hardware.opengl.extraPackages = [
