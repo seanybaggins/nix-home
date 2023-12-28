@@ -31,7 +31,8 @@
             nixpkgs.config.allowUnfree = true;
             nixpkgs.config.permittedInsecurePackages = [
               "python-2.7.18.6" # Required for davinci-resolve
-              "electron-12.2.3"
+              #"electron-12.2.3"
+              "electron-19.1.9"
             ];
 
             hardware.opengl.extraPackages = [
@@ -100,7 +101,6 @@
 
             imports = [
               "${jovian}/modules"
-              ./machines/steamdeck/user-configurations.nix
               # Generated using nixos-generate-config --show-hardware-config
               ./machines/steamdeck/hardware-configuration.nix
             ];
