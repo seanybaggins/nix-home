@@ -170,6 +170,7 @@
       ale # for Error corrections in C#
       auto-pairs
       coc-clangd
+      coc-json
       coc-nvim
       coc-pyright
       coc-rust-analyzer

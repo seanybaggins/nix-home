@@ -46,7 +46,6 @@
       "filetypes": [
         "cmake"
       ],
-      "trace.server": "verbose",
       "rootPatterns": [
         "build/"
       ],
