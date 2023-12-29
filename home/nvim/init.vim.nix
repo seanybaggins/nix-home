@@ -147,6 +147,29 @@
   " package.nix skeleton
   autocmd BufNewFile package.nix 0r ~/.config/nvim/skeletons/package.nix
 
+  " Auto format shell files
+  function! FormatWithShfmt()
+    " Preserve cursor position and current buffer state
+    let l:save = winsaveview()
+    let l:current_buffer = getline(1, '$')
+
+    " Attempt to format with shfmt
+    let l:output = system('shfmt --indent 4', join(l:current_buffer, "\n"))
+
+    " Check if shfmt ran successfully
+    if v:shell_error == 0
+        " Replace buffer with formatted text
+        call setline(1, split(l:output, "\n"))
+        " Write the buffer
+        write
+    else
+        " Report error
+        echoerr 'shfmt failed to format the file'
+    endif
+    " Restore cursor position
+    call winrestview(l:save)
+  endfunction
+  autocmd BufWritePre *.sh call FormatWithShfmt()
 ''
 + import ./coc-config.nix
 + import ./colors.nix

@@ -40,6 +40,7 @@
     ls = "lsd";
     tmux = "tmux -2";
     vim = "nvim";
+    xp-pen = "pentablet-driver";
   };
 
   # Required for virt-manager
@@ -68,6 +69,7 @@
     fish
     flowkey_dl
     fzf
+    gnome.gnome-calculator
     gnome.eog
     gnome.simple-scan
     gnumake
@@ -95,19 +97,21 @@
     rustfmt
     saleae-logic-2
     shellcheck
+    shfmt
     signal-desktop
-    teams
     terraform-ls
     tldr
     tmux
     tree
     trezor-suite
+    unzip
     usbutils
     virt-manager
     vlc
     wget
     xsel
     yt-dlp
+    zip
   ];
 
   programs.zsh = {
@@ -168,6 +172,7 @@
       ale # for Error corrections in C#
       auto-pairs
       coc-clangd
+      coc-cmake
       coc-nvim
       coc-pyright
       coc-rust-analyzer
@@ -213,7 +218,7 @@
   programs.git = {
     enable = true;
     userName = "Sean Link";
-    userEmail = "sean.link@netally.com";
+    userEmail = "sean.link@lightdeckdx.com";
     lfs.enable = true;
     extraConfig = {
       init.defaultBranch = "main";
