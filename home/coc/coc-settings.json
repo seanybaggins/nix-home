@@ -1,0 +1,66 @@
+{
+  "rust-analyzer.checkOnSave.allTargets": false,
+  "rust-analyzer.runnables.cargoExtraArgs": [
+    "--target",
+    "thumbv7em-none-eabihf"
+  ],
+  "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+  "languageserver": {
+    "nix": {
+      "command": "nil",
+      "filetypes": [
+        "nix"
+      ],
+      "rootPatterns": [
+        "flake.nix"
+      ],
+      "settings": {
+        "nil": {
+          "formatting": {
+            "command": [
+              "nixpkgs-fmt"
+            ]
+          }
+        }
+      }
+    },
+    "terraform": {
+      "command": "terraform-ls",
+      "args": [
+        "serve"
+      ],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
+    },
+    "cmake": {
+      "command": "cmake-language-server",
+      "filetypes": [
+        "cmake"
+      ],
+      "trace.server": "verbose",
+      "rootPatterns": [
+        "build/"
+      ],
+      "initializationOptions": {
+        "buildDirectory": "build"
+      }
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": [
+        "start"
+      ],
+      "filetypes": [
+        "sh"
+      ],
+      "ignoredRootPaths": [
+        "~"
+      ]
+    }
+  }
+}

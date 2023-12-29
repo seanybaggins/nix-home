@@ -25,13 +25,8 @@
     '';
   };
 
-  home.file.".config/nvim/coc-settings.json" = {
-    text = import ./coc/coc.nix pkgs;
-  };
-
-  home.file.".config/nvim/skeletons" = {
-    source = ./nvim/skeletons;
-  };
+  home.file.".config/nvim/coc-settings.json".source = ./coc/coc-settings.json;
+  home.file.".config/nvim/skeletons".source = ./nvim/skeletons;
 
   home.shellAliases = {
     la = "ls -a";
@@ -62,6 +57,8 @@
     clang
     clang-tools
     clippy
+    cmake
+    cmake-language-server
     davinci-resolve
     docker-compose
     etcher
@@ -172,7 +169,6 @@
       ale # for Error corrections in C#
       auto-pairs
       coc-clangd
-      coc-cmake
       coc-nvim
       coc-pyright
       coc-rust-analyzer
