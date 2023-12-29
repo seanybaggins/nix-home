@@ -81,6 +81,7 @@
     neofetch
     networkmanager-openvpn
     nil
+    nixd
     nix-tree
     nixpkgs-fmt
     nodePackages.bash-language-server
