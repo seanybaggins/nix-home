@@ -10,7 +10,7 @@
     };
     jovian = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -93,6 +93,8 @@
             services.xserver.desktopManager.plasma5.enable = true;
             swapDevices = [{ device = "/swapfile"; size = 1024; }];
 
+            # Allow the SD card to be discovered from the gamespoce UI
+            services.udisks2.enable = true;
 
             # Enable touchpad support
             services.xserver.libinput.enable = true;
