@@ -97,6 +97,7 @@
     shellcheck
     shfmt
     signal-desktop
+    steam
     terraform-ls
     tldr
     tmux
