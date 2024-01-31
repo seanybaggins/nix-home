@@ -66,16 +66,17 @@
     fish
     flowkey_dl
     fzf
-    gnome.gnome-calculator
     gnome.eog
+    gnome.gnome-calculator
     gnome.simple-scan
     gnumake
     gnupg
-    lsd
+    google-chrome
     #gpt-engineer
     graphviz-nox
     htop
     libreoffice-qt # Need to figure out what there is so much lag when compared to
+    lsd
     # just using nix-shell -p libreoffice.
     meslo-lgs-nf
     neofetch
