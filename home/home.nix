@@ -75,6 +75,7 @@
     #gpt-engineer
     graphviz-nox
     htop
+    keepassxc
     libreoffice-qt # Need to figure out what there is so much lag when compared to
     lsd
     # just using nix-shell -p libreoffice.
