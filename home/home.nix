@@ -1,5 +1,5 @@
 # vim: tabstop=2 shiftwidth=2 expandtab
-{ config, pkgs, lib, ... }:
+{ inputs, pkgs, system, ... }:
 {
 
   # Home Manager needs a bit of information about you aknd the
@@ -72,9 +72,15 @@
     gnumake
     gnupg
     google-chrome
+    gpt4all
     #gpt-engineer
     graphviz-nox
     htop
+    hledger
+    hledger-interest
+    hledger-web
+    hledger-utils
+    inputs.paisa.packages.${system}.default
     keepassxc
     libreoffice-qt # Need to figure out what there is so much lag when compared to
     lsd
@@ -103,6 +109,7 @@
     terraform-ls
     tldr
     tmux
+    tor-browser
     tree
     trezor-suite
     unzip
