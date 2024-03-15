@@ -73,7 +73,6 @@
     gnupg
     google-chrome
     gpt4all
-    #gpt-engineer
     graphviz-nox
     htop
     hledger
@@ -84,13 +83,13 @@
     keepassxc
     libreoffice-qt # Need to figure out what there is so much lag when compared to
     lsd
-    # just using nix-shell -p libreoffice.
     meslo-lgs-nf
     neofetch
     networkmanager-openvpn
     nil
-    nixd
     nix-tree
+    nixd
+    nixos-generators
     nixpkgs-fmt
     nodePackages.bash-language-server
     obs-studio
