@@ -61,7 +61,7 @@
     cmake-language-server
     davinci-resolve
     docker-compose
-    etcher
+    #etcher
     fd
     fish
     flowkey_dl
@@ -80,6 +80,7 @@
     hledger-web
     hledger-utils
     inputs.paisa.packages.${system}.default
+    inputs.caligula.packages.${system}.default
     keepassxc
     libreoffice-qt # Need to figure out what there is so much lag when compared to
     lsd
@@ -115,6 +116,7 @@
     usbutils
     virt-manager
     vlc
+    vscode
     wget
     xsel
     yt-dlp

@@ -16,6 +16,10 @@
       url = "github:ananthakumaran/paisa";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    caligula = {
+      url = "github:ifd3f/caligula";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -24,6 +28,7 @@
     , home-manager
     , jovian
     , nixos-hardware
+    , caligula
     , ...
     }: {
       nixosConfigurations = {

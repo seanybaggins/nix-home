@@ -14,4 +14,6 @@
       && [ -z "$TMUX" ] \
       && { tmux -2 attach || tmux -2; } >/dev/null 2>&1
 ''
-  + builtins.readFile ./mkGraph.sh
++ builtins.readFile ./mkGraph.sh
++ builtins.readFile ./fzfcd.sh
+  + builtins.readFile ./fzfvim.sh
