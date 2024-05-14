@@ -95,6 +95,7 @@
     nodePackages.bash-language-server
     obs-studio
     pentablet-driver
+    protonvpn-gui
     python3 # For autojump
     remmina
     ripgrep
