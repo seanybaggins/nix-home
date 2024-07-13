@@ -81,6 +81,7 @@
     hledger-utils
     inputs.paisa.packages.${system}.default
     inputs.caligula.packages.${system}.default
+    jupiter-dock-updater-bin
     keepassxc
     libreoffice-qt # Need to figure out what there is so much lag when compared to
     lsd
@@ -97,6 +98,7 @@
     pentablet-driver
     protonvpn-gui
     python3 # For autojump
+    python3Packages.black
     remmina
     ripgrep
     rust-analyzer

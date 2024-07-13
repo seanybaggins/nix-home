@@ -147,6 +147,10 @@
   " package.nix skeleton
   autocmd BufNewFile package.nix 0r ~/.config/nvim/skeletons/package.nix
 
+  let g:autoformat_python = '"black"'
+  let g:formatters_python = ['black']
+  autocmd BufWritePre *.py :Autoformat
+
   " Auto format shell files
   function! FormatWithShfmt()
     " Preserve cursor position and current buffer state
