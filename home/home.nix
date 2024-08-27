@@ -61,11 +61,11 @@
     cmake-language-server
     davinci-resolve
     docker-compose
-    #etcher
     fd
     fish
     flowkey_dl
     fzf
+    gimp-with-plugins
     gnome.eog
     gnome.gnome-calculator
     gnome.simple-scan
@@ -79,8 +79,9 @@
     hledger-interest
     hledger-web
     hledger-utils
-    inputs.paisa.packages.${system}.default
+    inkscape-with-extensions
     inputs.caligula.packages.${system}.default
+    inputs.paisa.packages.${system}.default
     jupiter-dock-updater-bin
     keepassxc
     libreoffice-qt # Need to figure out what there is so much lag when compared to
