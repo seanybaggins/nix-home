@@ -124,8 +124,6 @@
   # Enable touchpad support
   services.xserver.libinput.enable = true;
 
-  sound.enable = true;
-
   imports = [
     "${inputs.jovian}/modules"
     # Generated using nixos-generate-config --show-hardware-config
