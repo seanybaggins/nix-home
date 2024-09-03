@@ -110,6 +110,7 @@
     shfmt
     signal-desktop
     steam
+    steamdeck-firmware
     terraform-ls
     tldr
     tmux
