@@ -52,6 +52,7 @@
     awscli2
     bat
     bear
+    brave
     bottles
     cargo
     clang
@@ -87,6 +88,7 @@
     libreoffice-qt # Need to figure out what there is so much lag when compared to
     lsd
     meslo-lgs-nf
+    musescore
     neofetch
     networkmanager-openvpn
     nil
