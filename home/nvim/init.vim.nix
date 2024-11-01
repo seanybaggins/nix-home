@@ -158,7 +158,7 @@
     let l:current_buffer = getline(1, '$')
 
     " Attempt to format with shfmt
-    let l:output = system('shfmt --indent 4 --binary-next-line --keep-padding --case-indent', join(l:current_buffer, "\n"))
+    let l:output = system('shfmt --indent 4 --binary-next-line --keep-padding', join(l:current_buffer, "\n"))
 
     " Check if shfmt ran successfully
     if v:shell_error == 0

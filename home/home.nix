@@ -98,6 +98,7 @@
     nixpkgs-fmt
     nodePackages.bash-language-server
     obs-studio
+    pmccabe
     pentablet-driver
     protonvpn-gui
     python3 # For autojump
