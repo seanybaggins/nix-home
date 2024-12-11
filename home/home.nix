@@ -60,7 +60,6 @@
     clippy
     cmake
     cmake-language-server
-    davinci-resolve
     docker-compose
     fd
     fish
@@ -98,6 +97,8 @@
     nixpkgs-fmt
     nodePackages.bash-language-server
     obs-studio
+    obsidian
+    packer
     pmccabe
     pentablet-driver
     protonvpn-gui
@@ -115,6 +116,7 @@
     steam
     steamdeck-firmware
     terraform-ls
+    terraform
     tldr
     tmux
     tor-browser

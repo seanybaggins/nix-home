@@ -23,7 +23,7 @@
 
   " Show line numbers.
   set number
-  set relativenumber
+  " set relativenumber
 
   " Show the line that the cursor is on
   set cursorline

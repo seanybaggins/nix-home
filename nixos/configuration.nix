@@ -2,14 +2,7 @@
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "python-2.7.18.6" # Required for davinci-resolve
-    #"electron-12.2.3"
-    #"electron-19.1.9" # For belena etcher
     "nix-2.16.2"
-  ];
-
-  hardware.opengl.extraPackages = [
-    pkgs.rocm-opencl-icd # Required for davinci-resolve
   ];
 
   nix.extraOptions = ''
