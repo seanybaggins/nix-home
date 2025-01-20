@@ -52,8 +52,8 @@
     awscli2
     bat
     bear
-    brave
     bottles
+    brave
     cargo
     clang
     clang-tools
@@ -61,24 +61,23 @@
     cmake
     cmake-language-server
     docker-compose
+    eog
     fd
     fish
     flowkey_dl
     fzf
     gimp-with-plugins
-    gnome.eog
-    gnome.gnome-calculator
-    gnome.simple-scan
+    gnome-calculator
     gnumake
     gnupg
     google-chrome
     gpt4all
     graphviz-nox
-    htop
     hledger
     hledger-interest
-    hledger-web
     hledger-utils
+    hledger-web
+    htop
     inkscape-with-extensions
     inputs.caligula.packages.${system}.default
     inputs.paisa.packages.${system}.default
@@ -99,8 +98,8 @@
     obs-studio
     obsidian
     packer
-    pmccabe
     pentablet-driver
+    pmccabe
     protonvpn-gui
     python3 # For autojump
     python3Packages.black
@@ -113,10 +112,11 @@
     shellcheck
     shfmt
     signal-desktop
+    simple-scan
     steam
     steamdeck-firmware
-    terraform-ls
     terraform
+    terraform-ls
     tldr
     tmux
     tor-browser

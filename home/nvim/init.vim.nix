@@ -63,17 +63,6 @@
   " sometimes be convenient.
   set mouse+=a
 
-  " Prevent bad habits
-  nnoremap <Left>  :echoe "Use h"<CR>
-  nnoremap <Right> :echoe "Use l"<CR>
-  nnoremap <Up>    :echoe "Use k"<CR>
-  nnoremap <Down>  :echoe "Use j"<CR>
-  " ...and in insert mode
-  inoremap <Left>  <ESC>:echoe "Use h"<CR>
-  inoremap <Right> <ESC>:echoe "Use l"<CR>
-  inoremap <Up>    <ESC>:echoe "Use k"<CR>
-  inoremap <Down>  <ESC>:echoe "Use j"<CR>
-
   " Make a tab insert four spaces"
   set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
@@ -113,6 +102,9 @@
 
   " Toggle between NERDTree and working directory
   nnoremap <leader>t :NERDTreeFocus<CR>
+
+  " Show hidden files
+  let NERDTreeShowHidden=1
 
   " Jenkins file support
   autocmd BufNewFile,BufRead Jenkinsfile setf groovy
