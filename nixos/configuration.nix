@@ -71,6 +71,12 @@
   # Enable binfmt emulation of aarch64-linux.
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
+  services.syncthing = {
+    enable = true;
+    user = "sean";
+    dataDir = "/home/sean";
+  };
+
   # Allow the SD card to be discovered from the gamespoce UI
   users.groups.storage = { };
   services.udisks2.enable = true;
