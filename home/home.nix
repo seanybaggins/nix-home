@@ -100,6 +100,7 @@
     packer
     pentablet-driver
     pmccabe
+    prismlauncher
     protonvpn-gui
     python3 # For autojump
     python3Packages.black
