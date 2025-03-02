@@ -109,6 +109,7 @@
     protonvpn-gui
     python3 # For autojump
     python3Packages.black
+    rclone
     remmina
     ripgrep
     rust-analyzer
