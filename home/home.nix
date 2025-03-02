@@ -49,6 +49,11 @@
   home.packages = with pkgs; [
     alacritty
     android-tools
+    aravis
+    gst_all_1.gst-plugins-base
+    gst_all_1.gstreamer
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-bad
     awscli2
     bat
     bear
@@ -97,9 +102,9 @@
     nodePackages.bash-language-server
     obs-studio
     obsidian
+    ollama
     packer
     pentablet-driver
-    pmccabe
     prismlauncher
     protonvpn-gui
     python3 # For autojump

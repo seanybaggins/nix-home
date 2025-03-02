@@ -32,6 +32,11 @@
     zsa-udev-rules
   ];
 
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{idVendor}=="199e", ATTR{idProduct}=="9410", MODE="0660", GROUP="video"
+  '';
+
+
   services.xserver.displayManager = {
     setupCommands = ''
       ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --rotate right
