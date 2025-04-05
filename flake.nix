@@ -31,11 +31,14 @@
     , caligula
     , ...
     }: {
+
+      supportedSystem = "x86_64-linux";
+
       nixosConfigurations = {
         sean-steamdeck = nixpkgs.lib.nixosSystem rec {
           # Allows me to refer to flake inputs within other files 
           specialArgs = { inherit inputs; };
-          system = "x86_64-linux";
+          system = self.supportedSystem;
           modules = [
             home-manager.nixosModules.home-manager
             {
@@ -48,6 +51,13 @@
             ./nixos/configuration.nix
           ];
         };
+      };
+
+      overlays.default = [ (import ./overlays) ];
+
+      packages.x86_64-linux.pkgs = import nixpkgs {
+        overlays = self.overlays.default;
+        system = self.supportedSystem;
       };
     };
 }

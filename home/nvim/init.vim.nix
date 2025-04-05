@@ -133,8 +133,8 @@
     autocmd BufWritePre *.nix :Autoformat
   augroup END
   let g:autoformat_autoindent = 0
-  let g:formatdef_nixpkgsfmt = '"nixpkgs-fmt"'
-  let g:formatters_nix = ['nixpkgsfmt']
+  let g:formatdef_nixfmt = '"nixfmt"'
+  let g:formatters_nix = ['nixfmt']
 
   " package.nix skeleton
   autocmd BufNewFile package.nix 0r ~/.config/nvim/skeletons/package.nix

@@ -69,7 +69,7 @@
     eog
     fd
     fish
-    flowkey_dl
+    #flowkey_dl
     fzf
     gimp-with-plugins
     gnome-calculator
@@ -98,7 +98,7 @@
     nix-tree
     nixd
     nixos-generators
-    nixpkgs-fmt
+    nixfmt-rfc-style
     nodePackages.bash-language-server
     obs-studio
     obsidian
@@ -197,6 +197,7 @@
       #omnisharp-vim' # for C# language support
       ale # for Error corrections in C#
       auto-pairs
+      avante-nvim
       coc-clangd
       coc-json
       coc-nvim
@@ -215,7 +216,8 @@
       vim-fugitive
       vim-gitgutter
       vim-highlightedyank
-      vim-markdown
+      #vim-markdown
+      markdown-preview-nvim
       vim-matchup
       vim-nerdtree-syntax-highlight
       vim-nix
@@ -250,7 +252,7 @@
       init.defaultBranch = "main";
       push.autoSetupRemote = "true";
     };
-    delta.enable = true;
+    #delta.enable = true;
   };
 
   programs.direnv = {
