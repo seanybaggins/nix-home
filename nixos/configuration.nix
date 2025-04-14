@@ -36,6 +36,7 @@
   services.udev.packages = with pkgs; [
     trezor-udev-rules
     zsa-udev-rules
+    bazecor
   ];
 
   services.udev.extraRules = ''
