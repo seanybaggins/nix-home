@@ -1,5 +1,10 @@
 # vim: tabstop=2 shiftwidth=2 expandtab
-{ inputs, pkgs, system, ... }:
+{
+  inputs,
+  pkgs,
+  system,
+  ...
+}:
 {
 
   # Home Manager needs a bit of information about you aknd the
@@ -50,6 +55,7 @@
     alacritty
     android-tools
     aravis
+    bazecor
     gst_all_1.gst-plugins-base
     gst_all_1.gstreamer
     gst_all_1.gst-plugins-good
