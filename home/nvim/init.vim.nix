@@ -169,4 +169,5 @@
 ''
 + import ./coc-config.nix
 + import ./colors.nix
-  + import ./terraform-ls-config.nix
++ import ./terraform-ls-config.nix
++ import ./avante.nix

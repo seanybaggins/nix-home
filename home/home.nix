@@ -75,6 +75,7 @@
     eog
     fd
     fish
+    foliate
     #flowkey_dl
     fzf
     gimp-with-plugins
