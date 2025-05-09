@@ -10,7 +10,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.16.2"
   ];
-
+  nix.settings.trusted-users = [ "sean" ];
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
