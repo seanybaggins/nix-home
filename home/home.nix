@@ -132,6 +132,7 @@
     simple-scan
     steam
     steamdeck-firmware
+    stylua
     terraform
     terraform-ls
     tldr
