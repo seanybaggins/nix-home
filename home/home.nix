@@ -236,7 +236,6 @@
       python-syntax
       rust-vim
       tabular
-      vim-autoformat
       vim-devicons
       vim-fish
       vim-fugitive
