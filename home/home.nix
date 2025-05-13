@@ -30,8 +30,9 @@
     '';
   };
 
-  home.file.".config/nvim/coc-settings.json".source = ./coc/coc-settings.json;
-  home.file.".config/nvim/skeletons".source = ./nvim/skeletons;
+  #home.file.".config/nvim/coc-settings.json".source = ./coc/coc-settings.json;
+  #home.file.".config/nvim/skeletons".source = ./nvim/skeletons;
+  home.file.".config/nvim".source = ./nvim;
 
   home.shellAliases = {
     la = "ls -a";
@@ -76,6 +77,7 @@
     fd
     fish
     foliate
+    #frizbee
     #flowkey_dl
     fzf
     gimp-with-plugins
@@ -97,6 +99,7 @@
     keepassxc
     libreoffice-qt # Need to figure out what there is so much lag when compared to
     lsd
+    lua-language-server
     meslo-lgs-nf
     musescore
     neofetch
@@ -198,18 +201,33 @@
 
   programs.neovim = {
     enable = true;
-    extraConfig = import ./nvim/init.vim.nix { inherit pkgs; };
+    #extraConfig = import ./nvim/init.vim.nix { inherit pkgs; };
     plugins = with pkgs.vimPlugins; [
       #aosp-vim
       #omnisharp-vim' # for C# language support
       ale # for Error corrections in C#
       auto-pairs
       avante-nvim
-      coc-clangd
-      coc-json
-      coc-nvim
-      coc-pyright
-      coc-rust-analyzer
+      base16-nvim
+
+      # Auto completion packages https://github.com/hrsh7th/nvim-cmp
+      blink-cmp
+      nvim-lspconfig
+      #cmp-nvim-lsp
+      #cmp-buffer
+      #cmp-path
+      #cmp-cmdline
+      #nvim-cmp
+      #luasnip
+      #cmp_luasnip
+      #cmp-git
+
+      #coc-clangd
+      #coc-json
+      #coc-nvim
+      #coc-pyright
+      #coc-rust-analyzer
+      #coc-sumneko-lua
       fzf-vim
       lightline-vim
       nerdtree
