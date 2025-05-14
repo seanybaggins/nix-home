@@ -107,6 +107,6 @@ do
     })
 end
 
-require("configs/lsps")
-require("configs/formatting")
-require("configs/colors")
+require("lsps")
+require("formatting")
+require("color-settings")
