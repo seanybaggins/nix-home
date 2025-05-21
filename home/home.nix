@@ -94,7 +94,7 @@
     htop
     inkscape-with-extensions
     inputs.caligula.packages.${system}.default
-    inputs.paisa.packages.${system}.default
+    #inputs.paisa.packages.${system}.default
     jupiter-dock-updater-bin
     keepassxc
     libreoffice-qt # Need to figure out what there is so much lag when compared to
@@ -113,6 +113,7 @@
     obs-studio
     obsidian
     ollama
+    #paisa
     packer
     pentablet-driver
     prismlauncher
@@ -124,6 +125,7 @@
     ripgrep
     rust-analyzer
     rustc
+    rustdesk
     rustfmt
     saleae-logic-2
     shellcheck

@@ -58,31 +58,6 @@ vim.g.NERDTreeShowHidden = 1
 vim.g.vim_markdown_folding_disabled = 1
 vim.g.vim_markdown_strikethrough = 1
 
--- Nix indent
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "nix",
-    callback = function()
-        vim.opt_local.tabstop = 2
-        vim.opt_local.shiftwidth = 2
-        vim.opt_local.softtabstop = 2
-    end,
-})
-
--- Autoformat Nix & Python
-vim.api.nvim_create_autocmd(
-    "BufWritePre",
-    { pattern = "*.nix", command = "Autoformat" }
-)
-vim.api.nvim_create_autocmd(
-    "BufWritePre",
-    { pattern = "*.py", command = "Autoformat" }
-)
-vim.g.autoformat_autoindent = 0
-vim.g.formatdef_nixfmt = '"nixfmt"'
-vim.g.formatters_nix = { "nixfmt" }
-vim.g.autoformat_python = '"black"'
-vim.g.formatters_python = { "black" }
-
 -- Shell formatting
 do
     vim.api.nvim_create_autocmd("BufWritePre", {

@@ -12,10 +12,10 @@
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    paisa = {
-      url = "github:ananthakumaran/paisa";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #paisa = {
+    #  url = "github:ananthakumaran/paisa";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
     caligula = {
       url = "github:ifd3f/caligula";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,20 +23,22 @@
   };
 
   outputs =
-    inputs @ { self # Binding all function paramenters to inputs is helpful
-    , nixpkgs
-    , home-manager
-    , jovian
-    , nixos-hardware
-    , caligula
-    , ...
-    }: {
+    inputs@{
+      self, # Binding all function paramenters to inputs is helpful
+      nixpkgs,
+      home-manager,
+      jovian,
+      nixos-hardware,
+      caligula,
+      ...
+    }:
+    {
 
       supportedSystem = "x86_64-linux";
 
       nixosConfigurations = {
         sean-steamdeck = nixpkgs.lib.nixosSystem rec {
-          # Allows me to refer to flake inputs within other files 
+          # Allows me to refer to flake inputs within other files
           specialArgs = { inherit inputs; };
           system = self.supportedSystem;
           modules = [

@@ -6,6 +6,8 @@
 }:
 {
 
+  services.tailscale.enable = true;
+
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.16.2"
