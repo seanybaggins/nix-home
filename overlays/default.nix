@@ -1,9 +1,9 @@
 final: prev:
 
 {
-  breezy-desktop = final.callPackage ./pkgs/breezy-desktop { };
+  #breezy-desktop = final.callPackage ./pkgs/breezy-desktop { };
 
-  xr-linux-driver = final.callPackage ./pkgs/xr-linux-driver { };
+  #xr-linux-driver = final.callPackage ./pkgs/xr-linux-driver { };
 
   plaid2qif = final.callPackage ./pkgs/plaid2qif { };
 

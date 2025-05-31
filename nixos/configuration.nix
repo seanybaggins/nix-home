@@ -39,6 +39,7 @@
     trezor-udev-rules
     zsa-udev-rules
     bazecor
+    xrlinuxdriver
   ];
 
   services.udev.extraRules = ''
@@ -75,7 +76,7 @@
     git
     wget
     udiskie
-    breezy-desktop
+    xrlinuxdriver
   ];
   hardware.bluetooth.enable = true;
   networking.networkmanager.enable = true;

@@ -20,6 +20,11 @@
       url = "github:ifd3f/caligula";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    xrlinuxdriver = {
+      url = "github:shymega/XRLinuxDriver?ref=shymega/nix-flake-support";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -48,17 +53,23 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs system; };
               home-manager.users.sean = import ./home/home.nix;
-              nixpkgs.overlays = [ (import ./overlays) ];
+              nixpkgs.overlays = [
+                (import ./overlays)
+                inputs.xrlinuxdriver.overlays.default
+              ];
             }
             ./nixos/configuration.nix
           ];
         };
       };
 
-      overlays.default = [ (import ./overlays) ];
+      overlays.default = (import ./overlays);
 
       packages.x86_64-linux.pkgs = import nixpkgs {
-        overlays = self.overlays.default;
+        overlays = [
+          self.overlays.default
+          inputs.xrlinuxdriver.overlays.default
+        ];
         system = self.supportedSystem;
       };
     };
