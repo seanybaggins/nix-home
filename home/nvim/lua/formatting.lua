@@ -15,10 +15,10 @@ function add_formatting(command, pattern)
         end,
     })
 end
-add_formatting(
-    "%!clang-format -style=Webkit",
-    { "*.c", "*.cpp", "*.h", "*.hpp", "*.cc", "*.cxx" }
-)
+--add_formatting(
+--    "%!clang-format -style=Webkit",
+--    { "*.c", "*.cpp", "*.h", "*.hpp", "*.cc", "*.cxx" }
+--)
 add_formatting("%!black --quiet -", "*.py")
 add_formatting("%!stylua --indent-type Spaces --column-width 80 -", "*.lua")
 add_formatting("%!nixfmt", "*.nix")
