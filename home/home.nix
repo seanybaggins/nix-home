@@ -69,6 +69,7 @@
     cargo
     clang
     clang-tools
+    claude-code
     clippy
     cmake
     cmake-language-server
@@ -123,10 +124,10 @@
     rclone
     remmina
     ripgrep
-    rust-analyzer
-    rustc
+    #rust-analyzer
+    #rustc
     rustdesk
-    rustfmt
+    #rustfmt
     saleae-logic-2
     shellcheck
     shfmt
@@ -209,7 +210,7 @@
       #aosp-vim
       #omnisharp-vim' # for C# language support
       ale # for Error corrections in C#
-      auto-pairs
+      nvim-autopairs
       avante-nvim
       base16-nvim
 

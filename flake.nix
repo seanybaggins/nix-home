@@ -29,12 +29,6 @@
 
   outputs =
     inputs@{
-      self, # Binding all function paramenters to inputs is helpful
-      nixpkgs,
-      home-manager,
-      jovian,
-      nixos-hardware,
-      caligula,
       ...
     }:
     {
@@ -42,12 +36,12 @@
       supportedSystem = "x86_64-linux";
 
       nixosConfigurations = {
-        sean-steamdeck = nixpkgs.lib.nixosSystem rec {
+        sean-steamdeck = inputs.nixpkgs.lib.nixosSystem rec {
           # Allows me to refer to flake inputs within other files
           specialArgs = { inherit inputs; };
-          system = self.supportedSystem;
+          system = inputs.self.supportedSystem;
           modules = [
-            home-manager.nixosModules.home-manager
+            inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -65,12 +59,12 @@
 
       overlays.default = (import ./overlays);
 
-      packages.x86_64-linux.pkgs = import nixpkgs {
+      packages.x86_64-linux.pkgs = import inputs.nixpkgs {
         overlays = [
-          self.overlays.default
+          inputs.self.overlays.default
           inputs.xrlinuxdriver.overlays.default
         ];
-        system = self.supportedSystem;
+        system = inputs.self.supportedSystem;
       };
     };
 }

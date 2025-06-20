@@ -58,30 +58,7 @@ vim.g.NERDTreeShowHidden = 1
 vim.g.vim_markdown_folding_disabled = 1
 vim.g.vim_markdown_strikethrough = 1
 
--- Shell formatting
-do
-    vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = "*.sh",
-        callback = function()
-            local buf = vim.api.nvim_get_current_buf()
-            local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
-            local res = vim.fn.systemlist({
-                "shfmt",
-                "--indent",
-                "4",
-                "--binary-next-line",
-                "--keep-padding",
-            }, lines)
-            if vim.v.shell_error == 0 then
-                vim.api.nvim_buf_set_lines(buf, 0, -1, false, res)
-                vim.cmd("write")
-            else
-                vim.notify("shfmt failed", vim.log.levels.ERROR)
-            end
-        end,
-    })
-end
-
+require("nvim-autopairs").setup({})
 require("lsps")
 require("formatting")
 require("color-settings")
