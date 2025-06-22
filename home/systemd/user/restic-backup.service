@@ -1,0 +1,10 @@
+[Unit]
+Description=Restic backup of /home/sean/Sync → ProtonDrive
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+Environment=RESTIC_REPOSITORY=rclone:protondrive:backups
+Environment=RESTIC_PASSWORD_FILE=/home/sean/Sync/secrets/restic/password
+ExecStart=/etc/profiles/per-user/sean/bin/restic backup /home/sean/Sync --verbose

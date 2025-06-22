@@ -34,6 +34,14 @@
   #home.file.".config/nvim/skeletons".source = ./nvim/skeletons;
   home.file.".config/nvim".source = ./nvim;
 
+  # Files in systemd need to be linked 1 by 1. I can't write a sym link to the
+  # entire directory because there is a rouge service that is linked there and I
+  # don't know in my configuration where it is linked, or what removinging to
+  # would break
+  home.file.".config/systemd/user/restic-backup.service".source =
+    ./systemd/user/restic-backup.service;
+  home.file.".config/systemd/user/restic-backup.timer".source = ./systemd/user/restic-backup.timer;
+
   home.shellAliases = {
     la = "ls -a";
     ll = "ls -l";
@@ -42,6 +50,8 @@
     tmux = "tmux -2";
     vim = "nvim";
     xp-pen = "pentablet-driver";
+    RESTIC_PASSWORD_FILE = "~/Sync/secrets/restic/password";
+    RESTIC_REPOSITORY = "rclone:protondrive:backups";
   };
 
   # Required for virt-manager
@@ -123,6 +133,7 @@
     python3Packages.black
     rclone
     remmina
+    restic
     ripgrep
     #rust-analyzer
     #rustc

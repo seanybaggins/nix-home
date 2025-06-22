@@ -1,0 +1,9 @@
+[Unit]
+Description=Run Restic backup every Friday at 10:00 (persistent)
+
+[Timer]
+OnCalendar=Fri *-*-* 10:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
