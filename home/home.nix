@@ -50,8 +50,6 @@
     tmux = "tmux -2";
     vim = "nvim";
     xp-pen = "pentablet-driver";
-    RESTIC_PASSWORD_FILE = "~/Sync/secrets/restic/password";
-    RESTIC_REPOSITORY = "rclone:protondrive:backups";
   };
 
   # Required for virt-manager
@@ -106,6 +104,7 @@
     inkscape-with-extensions
     inputs.caligula.packages.${system}.default
     #inputs.paisa.packages.${system}.default
+    jellyfin-media-player
     jupiter-dock-updater-bin
     keepassxc
     libreoffice-qt # Need to figure out what there is so much lag when compared to
@@ -305,6 +304,8 @@
     VISUAL = "nvim";
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     MANROFFOPT = "-c";
+    RESTIC_PASSWORD_FILE = "/home/sean/Sync/secrets/restic/password";
+    RESTIC_REPOSITORY = "rclone:protondrive:backups";
   };
 
   # Let Home Manager install and manage itself.

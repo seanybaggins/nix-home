@@ -1,10 +1,26 @@
 [Unit]
-Description=Restic backup of /home/sean/Sync → ProtonDrive
+Description=Restic backup of /home/sean/Sync → ProtonDrive and RPi server
 Wants=network-online.target
 After=network-online.target
 
 [Service]
 Type=oneshot
-Environment=RESTIC_REPOSITORY=rclone:protondrive:backups
 Environment=RESTIC_PASSWORD_FILE=/home/sean/Sync/secrets/restic/password
-ExecStart=/etc/profiles/per-user/sean/bin/restic backup /home/sean/Sync --verbose
+
+# Use bash to run both backups in sequence
+ExecStart=/usr/bin/env bash -c '\
+  export RESTIC_REPOSITORY=rclone:protondrive:backups && \
+  /etc/profiles/per-user/sean/bin/restic backup /home/sean/Sync --verbose && \
+  export RESTIC_REPOSITORY=sftp:rpi-server:backups && \
+  /etc/profiles/per-user/sean/bin/restic backup /home/sean/Sync --verbose \
+'
+
+# Forget old backups for each repo after backup
+ExecStartPost=/usr/bin/env bash -c '\
+  export RESTIC_REPOSITORY=rclone:protondrive:backups && \
+  /etc/profiles/per-user/sean/bin/restic forget --keep-weekly 52 --prune && \
+  export RESTIC_REPOSITORY=sftp:rpi-server:backups && \
+  /etc/profiles/per-user/sean/bin/restic forget --keep-weekly 52 --prune \
+'
+
+
