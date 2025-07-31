@@ -49,6 +49,27 @@
               ];
             }
             ./nixos/configuration.nix
+            ./machines/steamdeck/hardware-configuration.nix
+          ];
+        };
+        sean-work-laptop = inputs.nixpkgs.lib.nixosSystem rec {
+          # Allows me to refer to flake inputs within other files
+          specialArgs = { inherit inputs; };
+          system = inputs.self.supportedSystem;
+          modules = [
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs system; };
+              home-manager.users.sean = import ./home/home.nix;
+              nixpkgs.overlays = [
+                (import ./overlays)
+                inputs.xrlinuxdriver.overlays.default
+              ];
+            }
+            ./nixos/configuration.nix
+            ./machines/work-laptop/hardware-configuration.nix
           ];
         };
       };

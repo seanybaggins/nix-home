@@ -15,23 +15,31 @@
   ];
 
   boot.initrd.availableKernelModules = [
-    "nvme"
     "xhci_pci"
+    "thunderbolt"
+    "vmd"
+    "nvme"
+    "usb_storage"
     "usbhid"
-    "sdhci_pci"
+    "sd_mod"
+    "rtsx_pci_sdmmc"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/f9b6f3d2-638d-4d27-a9db-6fce81210ded";
+    device = "/dev/disk/by-uuid/b41c107a-bed9-43dd-9c48-8a9ebac65f8c";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/997A-2D51";
+    device = "/dev/disk/by-uuid/F4C1-790C";
     fsType = "vfat";
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
   };
 
   swapDevices = [ ];
@@ -41,22 +49,10 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-e4b18ae084a0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp4s0f3u1u4c2.useDHCP = lib.mkDefault true;
-  # networking.interfaces.tun0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.vethf6ef1a4.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
+  networking.hostName = "sean-work-laptop";
+  # networking.interfaces.enp61s0u2u4.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  jovian.devices.steamdeck.enable = true;
-
-  services.xserver.displayManager.setupCommands = ''
-    ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --rotate right
-  '';
-
-  networking.hostName = "sean-steamdeck";
-
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
