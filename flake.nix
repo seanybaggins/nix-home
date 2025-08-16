@@ -12,10 +12,6 @@
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #paisa = {
-    #  url = "github:ananthakumaran/paisa";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
     caligula = {
       url = "github:ifd3f/caligula";
       inputs.nixpkgs.follows = "nixpkgs";

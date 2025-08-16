@@ -11,7 +11,7 @@ Environment=RESTIC_PASSWORD_FILE=/home/sean/Sync/secrets/restic/password
 ExecStart=/usr/bin/env bash -c '\
   export RESTIC_REPOSITORY=rclone:protondrive:backups && \
   /etc/profiles/per-user/sean/bin/restic backup /home/sean/Sync --verbose && \
-  export RESTIC_REPOSITORY=sftp:rpi-server:backups && \
+  export RESTIC_REPOSITORY=sftp:sean-rpi:backups && \
   /etc/profiles/per-user/sean/bin/restic backup /home/sean/Sync --verbose \
 '
 
@@ -19,7 +19,7 @@ ExecStart=/usr/bin/env bash -c '\
 ExecStartPost=/usr/bin/env bash -c '\
   export RESTIC_REPOSITORY=rclone:protondrive:backups && \
   /etc/profiles/per-user/sean/bin/restic forget --keep-weekly 52 --prune && \
-  export RESTIC_REPOSITORY=sftp:rpi-server:backups && \
+  export RESTIC_REPOSITORY=sftp:sean-rpi:backups && \
   /etc/profiles/per-user/sean/bin/restic forget --keep-weekly 52 --prune \
 '
 
