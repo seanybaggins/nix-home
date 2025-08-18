@@ -50,14 +50,8 @@
   services.xserver.desktopManager.gnome.enable = true;
   programs.ssh.askPassword = "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
 
-  services.xserver.displayManager = {
-    setupCommands = ''
-      ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --rotate right
-    '';
-    sddm = {
-      enable = true;
-    };
-  };
+  services.xserver.displayManager.sddm.enable = true;
+
   virtualisation.docker.enable = true;
 
   # For virt-manager
@@ -150,18 +144,15 @@
   imports = [
     "${inputs.jovian}/modules"
     # Generated using nixos-generate-config --show-hardware-config
-    ../machines/steamdeck/hardware-configuration.nix
   ];
 
   jovian = {
     steam.enable = true;
-    devices.steamdeck.enable = true;
   };
 
   system.stateVersion = "25.05";
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  networking.hostName = "sean-steamdeck";
   boot.initrd.availableKernelModules = lib.mkAfter [
     "usb_storage"
     "sd_mod"
