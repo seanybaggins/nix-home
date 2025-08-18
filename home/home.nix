@@ -126,7 +126,6 @@
     #paisa
     packer
     pentablet-driver
-    prismlauncher
     protonvpn-gui
     python3 # For autojump
     python3Packages.black

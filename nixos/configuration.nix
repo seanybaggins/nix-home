@@ -7,6 +7,7 @@
 {
 
   services.tailscale.enable = true;
+  services.flatpak.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
